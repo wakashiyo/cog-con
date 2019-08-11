@@ -18,9 +18,14 @@ const router = new Router({
       }
     },
     {
-      path: "/login",
-      name: "login",
-      component: () => import("./views/Login.vue")
+      path: "/signin",
+      name: "signin",
+      component: () => import("./views/SignIn.vue")
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("./views/SignUp.vue")
     }
   ]
 });
@@ -31,7 +36,7 @@ router.beforeEach((to, from, next) => {
       //trueの場合（ログイン済み）
       next();
     } else {
-      next("/login");
+      next("/signin");
     }
   } else {
     next();
